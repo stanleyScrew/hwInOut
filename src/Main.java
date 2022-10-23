@@ -6,10 +6,10 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) throws Exception {
-        File textFile = new File("basket.txt");
+        File file = new File("basket.bin");
         Basket basket = null;
         try {
-            basket = Basket.loadFromTxtFile(textFile);
+            basket = Basket.loadFromBinFile(file);
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
@@ -51,7 +51,7 @@ public class Main {
 //            quantity[productNumber] += volume;
 //            commPrice[productNumber] += volume * prices[productNumber];
         }
-        basket.saveTxt(textFile);
+        basket.saveBin(file);
         basket.printCart();
 //        System.out.println("Ваша корзина");
 
