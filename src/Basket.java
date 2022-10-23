@@ -19,29 +19,29 @@ public class Basket {
         productBasket[productNumber] += amount;
     }
 
-    public void printCart() { //метод вывода на экран покупательской корзины.
+    public void printCart() {
         int sumProduct = 0;
         int sumCount = 0;
         for (int i = 0; i < productBasket.length; i++) {
-            if (productBasket[i] != 0) {          // // вывод "товаров" при покупке
+            if (productBasket[i] != 0) {
                 System.out.println(products[i] + " кол-во " + productBasket[i] + " шт " + prices[i] + " руб/шт " + (productBasket[i] * prices[i]) + " руб в сумме");
-                sumProduct += productBasket[i] * prices[i]; // сумма всех затрат
+                sumProduct += productBasket[i] * prices[i];
                 sumCount += productBasket[i];
             }
         }
-        System.out.println("Кол-во продуктов в корзине: " + sumCount + " шт"); // кол-во продуктов
-        System.out.println("Итого: " + sumProduct + " руб"); // вывод суммы всех затрат
+        System.out.println("Кол-во продуктов в корзине: " + sumCount + " шт");
+        System.out.println("Итого: " + sumProduct + " руб");
     }
 
-    public void saveTxt(File textFile) throws FileNotFoundException { //метод сохранения корзины в текстовый файл;
+    public void saveTxt(File textFile) throws FileNotFoundException {
         try (PrintWriter out = new PrintWriter(textFile)) {
-            for (String s : getProducts()) //продукты
+            for (String s : getProducts())
                 out.print(s + " ");
-            out.print("\n"); //чтение по строке
-            for (int i : getPrices()) // цены
+            out.print("\n");
+            for (int i : getPrices())
                 out.print(i + " ");
-            out.print("\n"); //чтение по строке
-            for (long e : getProductBasket()) // кол-во продуктов
+            out.print("\n");
+            for (long e : getProductBasket())
                 out.print(e + " ");
         }
     }
@@ -69,9 +69,9 @@ public class Basket {
                 return basket;
             }
         } else {
-            String[] products = {"Хлеб", "Яблоки", "Молоко", "Рыба"};  //товар
-            int[] prices = {60, 120, 50, 250};  //цена
-            Basket basket = new Basket(products, prices);  //в корзину продукты и цену
+            String[] products = {"Хлеб", "Яблоки", "Молоко", "Рыба"};
+            int[] prices = {60, 120, 50, 250};
+            Basket basket = new Basket(products, prices);
             return basket;
         }
     }
